@@ -9,4 +9,14 @@ describe('IntervalBeeperService', () => {
     const service: IntervalBeeperService = TestBed.get(IntervalBeeperService);
     expect(service).toBeTruthy();
   });
+
+  it('should set interval', (done: DoneFn) => {
+    const service: IntervalBeeperService = TestBed.get(IntervalBeeperService);
+    const newIntervalSeconds = 4;
+    service.setBeeperInterval(newIntervalSeconds);
+    service.state$.subscribe(state => {
+      expect(state.intervalMilliseconds).toEqual(newIntervalSeconds * 1000);
+      done();
+    });
+  });
 });
