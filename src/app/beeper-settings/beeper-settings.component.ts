@@ -8,7 +8,13 @@ import { Router } from '@angular/router';
   templateUrl: './beeper-settings.component.html',
   styleUrls: ['./beeper-settings.component.css']
 })
-export class BeeperSettingsComponent implements OnInit {
+/**
+ * component for beeper settings
+ */
+export class BeeperSettingsComponent {
+  /**
+   * formgroup to manage beeper settings
+   */
   form = this.fb.group({
     interval: [1, ] // must be number, must be postive, required (or check and autoset to 1?)
   });
@@ -19,14 +25,17 @@ export class BeeperSettingsComponent implements OnInit {
 
   ) { }
 
-  ngOnInit() {
-    this.intervalBeeperService.state$.subscribe(x => console.log('test', x));
-  }
-
+  /**
+   * save settings by calling service.
+   * check if valid.
+   */
   saveSettings() {
     this.intervalBeeperService.setBeeperInterval(this.form.get('interval').value);
     this.goToBeeper();
   }
+  /**
+   * navigate to beeper page to start beeping
+   */
   goToBeeper() {
     this.router.navigate(['/beeper']);
   }
