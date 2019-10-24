@@ -52,7 +52,6 @@ describe('BeeperSettingsComponent', () => {
   });
 
   it('should navigate to beeper when saveSettings called', () => {
-    component.ngOnInit();
     const beeperSettingsElement: HTMLElement = fixture.debugElement.nativeElement;
     const submitbutton: HTMLButtonElement = beeperSettingsElement.querySelector('button[type="submit"]');
     submitbutton.click();
@@ -60,7 +59,6 @@ describe('BeeperSettingsComponent', () => {
   });
 
   it('should fail when interval input is not a valid number', () => {
-    component.ngOnInit();
     const beeperSettingsElement: HTMLElement = fixture.debugElement.nativeElement;
 
     const intervalInput: HTMLInputElement = beeperSettingsElement.querySelector('input#interval');
