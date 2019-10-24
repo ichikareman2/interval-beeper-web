@@ -11,7 +11,7 @@ describe('workspace-project App', () => {
   it('should display welcome message', () => {
     page.navigateTo();
     page.getTitleText().then(title => {
-      expect(title).toEqual('Interval Beeper')
+      expect(title).toEqual('Interval Beeper');
     });
   });
 
